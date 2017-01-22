@@ -69,7 +69,8 @@ require(["./shared","./page_a.js"], function(shared,pagea) {
 ```
 *则shared.js不会被打包进conmmon.js文件；
 ###webpack文件如下：
-```var path = require("path");
+``` javascript
+var path = require("path");
 var CommonsChunkPlugin = require("../../lib/optimize/CommonsChunkPlugin");
 module.exports = {
 	entry: {
