@@ -4,7 +4,8 @@
 	假设有两个页面pageA.html, pageB.html, shared.js, common.js, 同时common.js为公用模块.
 	首先我们分别创建一个pageA.html，pageB.html所需要的js文件的集合为pageA.js,pageB.js.
 ### pageA.js
-```var common = require("./common");
+```
+var common = require("./common");
 var shared = require("./shared");
 require([/*"./shared",*/"./page_a.js"], function(shared,pagea) {
 	shared("This is page A");
@@ -12,7 +13,7 @@ require([/*"./shared",*/"./page_a.js"], function(shared,pagea) {
 });
 ```
 ### pageB.js
-```
+``` javascript
 var common = require("./common");
 var shared = require("./shared");
 require.ensure([/*"./shared",*/"./page_b.js"], function(require) {
