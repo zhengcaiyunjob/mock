@@ -27,8 +27,9 @@ var webpackDevConfig = merge(baseWebpackConfig, {
         hot: true,
         port: 3001,
         proxy: {
-            "/pc": {
-                target: "/127.10.33.21",
+            "/string": {
+                target: "http://172.18.141.129:3000", //本机ip
+                changeOrigin: true
             }
         }
     },

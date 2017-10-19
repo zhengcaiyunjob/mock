@@ -11,9 +11,13 @@ exports.indexHandler = async (ctx, next) => {
 };
 
 exports.stringHandler = async (ctx, next) => {
+    console.log("ctx.req", ctx);
     ctx.body = {
         code: 0,
         msg: 'success',
-        data: {}
+        data: {
+            username: 'root',
+            passwd: 'root'
+        }
     }
 };
