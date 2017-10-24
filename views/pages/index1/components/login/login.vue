@@ -1,10 +1,17 @@
 <template>
     <div id="login">
-        <div>
+        <fieldset name="test1">
+            <legend>test1</legend>
             <label>用户名：</label><input v-model="username" type="text" />
             <label>密码</label><input v-model="passwd" type="password"/>
             <el-button @click="submit">提交</el-button>
-        </div>
+        </fieldset>
+        <fieldset>
+            <legend>test2</legend>
+            <label>用户名：</label><input v-model="username2" type="text" />
+            <label>密码</label><input v-model="passwd2" type="password"/>
+            <el-button @click="submit2">提交</el-button>
+        </fieldset>
         <router-view></router-view>
     </div>
 </template>
@@ -16,7 +23,9 @@
         data(){
             return {
                 username: 'root',
-                passwd: 'root'
+                passwd: 'root',
+                username2: 'caicai',
+                passwd2: '12345'
             }
         },
         computed: {
@@ -29,11 +38,18 @@
         methods: {
             submit() {
                 const params = {
-                    username: this.username,
-                    passwd: this.passwd
+                    userName: this.username,
+                    passWord: this.passwd
                 };
                 console.error('params', params);
                 this.$store.dispatch('User/subUserInfo', params);
+            },
+            submit2() {
+                const params = {
+                    userName: this.username2,
+                    passWord: this.passwd2
+                };
+                this.$store.dispatch('User/subUserInfo2', params);
             }
         },
     };

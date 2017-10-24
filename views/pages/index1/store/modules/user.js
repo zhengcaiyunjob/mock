@@ -9,24 +9,28 @@ import * as types from '../mutationTypes';
 // initial state
 const initState = {
     user: {
-        name: 'root',
-        passwd: 'root'
+        userName: 'root',
+        passWord: 'root'
     }
 };
 
 // actions
 const actions = {
-    subUserInfo({ commit }) {
-        return axios.post('/string',{
-            name: 'root',
-            passwd: 'root'
-        }).then((response) => {
-            console.error("response", response);
+    subUserInfo({ commit }, params) {
+        return axios.post('/string', params).then((response) => {
                 if (response.data.code === 0) {
                     const data = response.data.data;
                     commit(types.GET_USER__INFO, data);
                     return data;
                 }
+        });
+    },
+    subUserInfo2({ commit }, params) {
+        return axios.post('/string2', params).then((response) => {
+            if (response.data.code === 0) {
+                const data = response.data.data;
+                return data;
+            }
         });
     },
 };
